@@ -1,5 +1,11 @@
+import $ from 'jquery';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
+
 $(document).ready(function(){
   $("form").submit(function(event){
+    event.preventDefault();
     var firstLength = parseFloat($("#firstLength").val());
     var secondLength = parseFloat($("#secondLength").val());
     var thirdLength = parseFloat($("#thirdLength").val());
@@ -11,7 +17,7 @@ $(document).ready(function(){
 
     if (!isTriangle()) {
       $(".triangle-tracker").show();
-      $("#triangle-tracker").text("NOT a triangle")
+      $("#triangle-tracker").text("NOT a triangle");
     } else if (firstLength === secondLength && secondLength === thirdLength) {
       $(".triangle-tracker").show();
       $("#triangle-tracker").text("Equilateral");
@@ -22,6 +28,5 @@ $(document).ready(function(){
       $(".triangle-tracker").show();
       $("#triangle-tracker").text("Scalene");
     }
-    event.preventDefault()
   });
 });
