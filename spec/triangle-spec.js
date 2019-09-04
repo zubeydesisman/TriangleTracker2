@@ -8,9 +8,16 @@ describe('Triangle', function() {
     expect(triangle.side1).toEqual(4);
     expect(triangle.side1).not.toEqual(6);
   });
-  
+
   it('should correctly determine whether three lengths can be made into a triangle', function() {
     var notTriangle = new Triangle(3,9,22);
     expect(notTriangle.checkType()).toEqual("not a triangle");
   });
+  
+  it('should correctly determine whether three sides are not a triangle', function() {
+    var triangle = new Triangle(12,3,3)
+    console.log(triangle);
+    expect(triangle.checkType()).toEqual("not a triangle");
+  });
+
 });
